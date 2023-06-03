@@ -1,0 +1,68 @@
+
+
+
+  <style>
+
+  body{
+    background-color: black;
+  }
+  .table{
+    color: greenyellow;
+  }
+  h1{
+    display: flex;
+    font-size:120px;
+    color: greenyellow;
+    text-align:center;
+  }
+.card-img-top{
+  width:100%;
+  height: 250px;
+}
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+<% if account_signed_in? %>
+<h1>WELLCOME <%= current_account.firstname%> <%= current_account.lastname%></h1>
+<% end %>
+<div class="row">
+<% @products.each do |pro| %>
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <%= image_tag (url_for(pro.image)) ,class:"card-img-top"%>
+      <h5 class="card-title"><%= pro.name %></h5>
+      <p class="card-text"><%= pro.description %></p>
+    </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><span class="text-decoration-line-through">Actual Price -<%= pro.actual_price %></span></li>
+        <li class="list-group-item">Current Price -<%= pro.current_price %></li>
+      </ul>
+      <div class="container">
+        <%= link_to "Show", seller_product_path(pro) ,class:"btn btn-primary"%>
+        <%= link_to "Edit", edit_seller_product_path(pro) ,class:"btn btn-success"%>
+        <%= link_to "Destroy", seller_product_path(pro),class:"btn btn-danger",data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %>
+      </div>
+  </div>
+</div>
+  <% end %>
+</div>
+<%= link_to "New Product", new_seller_product_path,class:"btn btn-primary"%>
+</div>
+
+

@@ -1,0 +1,78 @@
+<style>
+h1 {
+    color:greenyellow; 
+}
+p{
+    color:red;
+}
+#hidden_div{
+    display:none;
+}
+#hidden_div2{
+    display:none;
+}
+</style>
+
+<body onload= "loading()">
+
+<div class="container">
+
+<h1>Wellcome Seller <%= current_account.firstname%>  <%= current_account.lastname%> <h1>
+
+<select  id="test" class="form-select form-select-lg mb-3" name="form_select" onchange="showDiv(this)">
+  <option selected>Open this Categories menu</option>
+<% @categories.each do |cat|%>
+    <% if !cat.parent_id %>
+  <option value=<%= cat.id%>><%= cat.name%></option>
+  <% end %>
+<% end %>
+
+</select>
+
+
+<div id="hidden_div">
+<h1>Cloths are here</h1>
+<% @cloths.each do |cat|%>
+  <h1><%= cat.name%></h1>
+  
+<% end %>
+
+</div>
+
+<div id="hidden_div2">
+<h1>Electronices are here</h1>
+<% @electric.each do |cat|%>
+  <h1><%= cat.name%></h1>
+<% end %>
+
+</div>
+
+
+
+
+<script>
+
+function showDiv(select){
+            if(select.value == 1){
+             document.getElementById('hidden_div').style.display = "block";
+             document.getElementById('hidden_div2').style.display = "none";
+            } else if(select.value== 5){
+             document.getElementById('hidden_div').style.display = "none";
+             document.getElementById('hidden_div2').style.display = "block";
+            }
+            else{
+             document.getElementById('hidden_div').style.display = "none";
+             document.getElementById('hidden_div2').style.display = "none";
+            }
+           
+         } 
+
+         function loding(){
+            document.getElementsByTagName('h1')[0].style.display = "none";
+            //  document.getElementById('hidden_div2').style.display = "none";
+         }
+
+
+</script>
+
+</body>

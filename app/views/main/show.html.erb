@@ -1,0 +1,81 @@
+<style>
+
+    .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding:60px 30px;
+        color:#000;
+        width: 500px; 
+        height:600px;
+        border-bottom-right-radius:30px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px 2px rgba(255,255,255,0.2);
+}
+
+.raja{
+    text-align:center;
+    color:red ;
+}
+
+</style>
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <td><%= @account.id%></td>
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Email</th>
+            <td><%= @account.email%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">First Name</th>
+            <td><%= @account.firstname%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Last Name</th>
+            <td><%= @account.lastname%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Age</th>
+            <td><%= @account.age%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Gender</th>
+            <td><%= @account.gender%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">phone</th>
+            <td><%= @account.phone%></td>     
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Address</th>
+            <td><%= @account.address%></td>        
+        </tr>
+    </thead>
+    <thead>
+        <tr> 
+            <th scope="col">Edit</th>
+            <td><%= link_to "Edit" , edit_account_registration_path, class:"btn btn-success" %></td>        
+        </tr>
+    </thead>
+    </table>
+
+    <a href="http://localhost:3000" class="btn btn-primary">Back to Home</a>
+    </div>

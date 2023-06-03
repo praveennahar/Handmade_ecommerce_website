@@ -1,0 +1,85 @@
+
+
+<style>
+  a{
+    
+    color:greenyellow;
+  }  
+.container{
+    margin:auto;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:25px;
+    width: 35%;
+    color:greenyellow;
+    border-radius:25px;
+    box-shadow: 0px 0px 8px 2px greenyellow;
+  }
+  .radio{
+    margin: 0 10px 0 0;
+  }
+  
+  .inp{
+    
+    width: 100%;
+    height: auto;
+    margin:5px;
+    font-size:20px;
+  }
+  .lab{
+    color:greenyellow;
+    font-size:20px;
+}
+
+
+</style>
+
+
+
+
+
+
+
+<%= form_with model: [:seller,@product] do |form| %>
+<div class="container">
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name,class:"inp" %>
+    
+  </div>
+
+  <div>
+    <%= form.label :actual_price %><br>
+    <%= form.text_field :actual_price ,class:"inp"%><br>
+   
+    
+  </div>
+  <div>
+    <%= form.label :current_price %><br>
+    <%= form.text_field :current_price ,class:"inp"%><br>
+    
+  </div>
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_field :description,class:"inp" %><br>
+    
+  </div>
+  <div>
+  <%= form.label :images %><br>
+  <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.label :category_id %><br>
+    <%= form.text_field :category_id ,class:"inp"%><br>
+    
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<div>
+<% end %>

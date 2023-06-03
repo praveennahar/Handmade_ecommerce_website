@@ -1,0 +1,27 @@
+<style>
+.card-img-top{
+  height: 250px;
+}
+</style>
+
+<div class="container">
+  <div class="row">
+    <% @products.each do |p|%>
+    <div class="col-sm">
+      <div class="card" style="width: 18rem;">
+        <%= image_tag (url_for(p.image)) ,class:"card-img-top"%>
+          <div class="card-body">
+            <h5 class="card-title"><%= p.name%></h5>
+            <p class="card-text"><%= p.description%></p>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item">Actual Price -<%= p.actual_price%></li>
+              <li class="list-group-item">Current Price -<%= p.current_price%></li>
+              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-group-item"><%= link_to "Add To Cart",new_customer_cart_path(product_id:p.id,price:p.current_price) ,class:"btn btn-primary"%></li>
+          </ul> 
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

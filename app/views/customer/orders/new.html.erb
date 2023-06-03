@@ -1,0 +1,86 @@
+
+
+<style>
+  a{
+    
+    color: #000;
+  }  
+.container{
+    margin:auto;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:25px;
+    width: 35%;
+    color:#000;
+    border-radius:25px;
+    box-shadow: 0px 0px 8px 2px #000;
+  }
+  .radio{
+    /* margin: 0 10px 0 0; */
+  }
+  
+  .inp{
+    
+    width: 100%;
+    height: auto;
+    margin:5px 0;
+    font-size:20px;
+  }
+  .lab{
+    color: #000;
+    font-size:20px;
+}
+
+
+</style>
+
+
+
+
+
+
+
+<%= form_with model: [:customer,@order] do |form| %>
+<div class="container">
+<h1>Checkout Product</h1>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name,class:"inp" %>
+    
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.email_field :email ,class:"inp"%><br>
+   
+    
+  </div>
+  <div>
+    <%= form.label :address %><br>
+    <%= form.text_field :address ,class:"inp" %><br>
+    
+  </div>
+  <div>
+  <%= form.label :number %><br>
+  <%= form.text_field :number,class:"inp" %>
+  </div>
+
+  <div>
+  <%= form.label :total %><br>
+  <%= form.text_field :total, :value =>@total,class:"inp" %>
+  </div>
+
+  <div>
+    <%= form.label :transection_id %><br>
+    <%= form.text_field :transection_id ,class:"inp"%><br>
+    
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<div>
+<% end %>

@@ -1,0 +1,124 @@
+<style>
+    
+body{
+    background-color:black;
+    height:100% ;
+  }
+
+  a{
+    
+    color:greenyellow;
+  }  
+  .container{
+    margin:auto;
+    position:relative;
+    top: 100% ;
+    padding:25px;
+    width: 35%;
+    color:greenyellow;
+    border-radius:25px;
+    box-shadow: 0px 0px 8px 2px greenyellow;
+  }
+  .radio{
+    margin: 0 10px 0 0;
+  }
+  
+  .inp{
+    
+    width: 100%;
+    height: auto;
+    margin:5px;
+    font-size:20px;
+  }
+  .lab{
+    color:greenyellow;
+    font-size:20px;
+}
+h3{
+  margin-top:10px;
+}
+.forms button{
+  margin: 10px 0;
+}
+</style>
+
+
+
+ <div class="container">
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"inp"%>
+  </div>
+  <div class="field">
+  <%= f.label :firstname %><br />
+  <%= f.text_field :firstname, autofocus: true, class:"inp" %>
+  </div>
+  <div class="field">
+  <%= f.label :lastname %><br />
+  <%= f.text_field :lastname, autofocus: true, class:"inp" %>
+  </div>
+  <div class="field">
+  <%= f.label :gender %><br />
+  <%= f.text_field :gender, autofocus: true,class:"inp" %>
+  </div>
+  <div class="field">
+  <%= f.label :age %><br />
+  <%= f.text_field :age, autofocus: true, class:"inp" %>
+</div>
+  <div class="field">
+  <%= f.label :phone %><br />
+  <%= f.text_field :phone, autofocus: true, class:"inp" %>
+  </div>
+<div class="field">
+  <%= f.label :address %><br />
+  <%= f.text_field :address, autofocus: true, class:"inp" %>
+</div>
+
+<div class="field">
+  <%= f.radio_button :roles,"seller", class:"radio" %>Seller    
+  <%= f.radio_button :roles, "customer" , class:"radio"%>Customer
+  </div>
+  
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" ,class:"inp"%>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"inp" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password",class:"inp" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" ,class:"btn btn-primary"%>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete ,class:"btn btn-danger"%></div>
+
+<%= link_to "Back", :back %>
+
+
+</div>
